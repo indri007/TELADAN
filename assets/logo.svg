@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="shield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3a5c"/>
+      <stop offset="100%" style="stop-color:#0F2B46"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8d48b"/>
+      <stop offset="50%" style="stop-color:#C9A227"/>
+      <stop offset="100%" style="stop-color:#a07c1a"/>
+    </linearGradient>
+    <linearGradient id="goldLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0e6b8"/>
+      <stop offset="100%" style="stop-color:#C9A227"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0F2B46" flood-opacity="0.3"/>
+    </filter>
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Shield Shape -->
+  <path d="M256 40 L440 120 L440 260 C440 360 360 440 256 480 C152 440 72 360 72 260 L72 120 Z"
+        fill="url(#shield)" filter="url(#shadow)" stroke="url(#gold)" stroke-width="4"/>
+
+  <!-- Inner shield highlight -->
+  <path d="M256 60 L420 130 L420 258 C420 348 348 420 256 458 C164 420 92 348 92 258 L92 130 Z"
+        fill="none" stroke="url(#goldLight)" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Book (open) -->
+  <g transform="translate(256, 200)" filter="url(#innerGlow)">
+    <!-- Left page -->
+    <path d="M-8 -30 L-70 -20 L-70 40 L-8 30 Z" fill="#F4F6F8" stroke="url(#gold)" stroke-width="1.5"/>
+    <!-- Right page -->
+    <path d="M8 -30 L70 -20 L70 40 L8 30 Z" fill="#eef1f5" stroke="url(#gold)" stroke-width="1.5"/>
+    <!-- Spine -->
+    <path d="M-8 -30 L0 -35 L8 -30 L8 30 L0 35 L-8 30 Z" fill="url(#gold)"/>
+    <!-- Page lines left -->
+    <line x1="-58" y1="-10" x2="-18" y2="-16" stroke="#C9A227" stroke-width="0.8" opacity="0.5"/>
+    <line x1="-58" y1="0" x2="-18" y2="-6" stroke="#C9A227" stroke-width="0.8" opacity="0.5"/>
+    <line x1="-58" y1="10" x2="-18" y2="4" stroke="#C9A227" stroke-width="0.8" opacity="0.5"/>
+    <line x1="-58" y1="20" x2="-18" y2="14" stroke="#C9A227" stroke-width="0.8" opacity="0.5"/>
+    <!-- Page lines right -->
+    <line x1="18" y1="-16" x2="58" y2="-10" stroke="#C9A227" stroke-width="0.8" opacity="0.5"/>
+    <line x1="18" y1="-6" x2="58" y2="0" stroke="#C9A227" stroke-width="0.8" opacity="0.5"/>
+    <line x1="18" y1="4" x2="58" y2="10" stroke="#C9A227" stroke-width="0.8" opacity="0.5"/>
+    <line x1="18" y1="14" x2="58" y2="20" stroke="#C9A227" stroke-width="0.8" opacity="0.5"/>
+  </g>
+
+  <!-- Scale of Justice -->
+  <g transform="translate(256, 280)">
+    <!-- Pillar -->
+    <rect x="-3" y="-25" width="6" height="50" rx="2" fill="url(#gold)"/>
+    <!-- Base -->
+    <rect x="-25" y="22" width="50" height="6" rx="3" fill="url(#gold)"/>
+    <!-- Beam -->
+    <line x1="-55" y1="-22" x2="55" y2="-22" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
+    <!-- Left pan -->
+    <path d="M-55 -18 L-70 10 Q-55 18 -40 10 L-55 -18 Z" fill="url(#goldLight)" opacity="0.8"/>
+    <!-- Right pan -->
+    <path d="M55 -18 L40 10 Q55 18 70 10 L55 -18 Z" fill="url(#goldLight)" opacity="0.8"/>
+    <!-- Chains -->
+    <line x1="-55" y1="-22" x2="-70" y2="10" stroke="#C9A227" stroke-width="1.5"/>
+    <line x1="-55" y1="-22" x2="-40" y2="10" stroke="#C9A227" stroke-width="1.5"/>
+    <line x1="55" y1="-22" x2="40" y2="10" stroke="#C9A227" stroke-width="1.5"/>
+    <line x1="55" y1="-22" x2="70" y2="10" stroke="#C9A227" stroke-width="1.5"/>
+  </g>
+
+  <!-- Compass points (small, top of shield) -->
+  <g transform="translate(256, 110)">
+    <polygon points="0,-22 6,-8 0,-12 -6,-8" fill="url(#gold)"/>
+    <polygon points="0,22 6,8 0,12 -6,8" fill="#C9A227" opacity="0.6"/>
+    <polygon points="-22,0 -8,-6 -12,0 -8,6" fill="#C9A227" opacity="0.6"/>
+    <polygon points="22,0 8,-6 12,0 8,6" fill="#C9A227" opacity="0.6"/>
+    <circle cx="0" cy="0" r="4" fill="url(#gold)"/>
+  </g>
+
+  <!-- TELADAN text -->
+  <text x="256" y="420" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
+        font-size="38" font-weight="900" fill="url(#gold)" letter-spacing="6">
+    TELADAN
+  </text>
+
+  <!-- Subtle tagline -->
+  <text x="256" y="450" text-anchor="middle" font-family="'Inter', sans-serif"
+        font-size="9" fill="#94a3b8" letter-spacing="3" text-transform="uppercase">
+    EVIDENCE · ANALYTICS · DECISION
+  </text>
+</svg>

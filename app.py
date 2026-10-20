@@ -1,4 +1,12 @@
 import streamlit as st
+import base64
+from pathlib import Path
+
+# Load 3D animated Material 3 SVG logo
+_LOGO_PATH = Path(__file__).parent / "assets" / "teladan_logo_3d.svg"
+_LOGO_B64 = ""
+if _LOGO_PATH.exists():
+    _LOGO_B64 = base64.b64encode(_LOGO_PATH.read_bytes()).decode("utf-8")
 
 st.set_page_config(
     page_title="TELADAN — Where Evidence Meets Decision",
@@ -185,6 +193,50 @@ st.markdown("""
     }
 
     /* SECTION HEADERS */
+    /* MATERIAL DESIGN 3 (M3) 3D LOGO CONTAINER */
+    .m3-3d-wrapper {
+        perspective: 1200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+    .m3-3d-card {
+        width: 100%;
+        max-width: 540px;
+        transform-style: preserve-3d;
+        border-radius: 28px;
+        padding: 8px;
+        background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(201,162,39,0.12));
+        border: 1px solid rgba(201,162,39,0.35);
+        box-shadow: 0 24px 60px rgba(7, 25, 39, 0.75), 0 0 40px rgba(201, 162, 39, 0.25);
+        transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+        animation: m3FloatHero 7s ease-in-out infinite;
+    }
+    .m3-3d-card:hover {
+        transform: rotateY(8deg) rotateX(4deg) translateY(-8px) scale(1.02);
+        box-shadow: 0 32px 80px rgba(7, 25, 39, 0.9), 0 0 60px rgba(201, 162, 39, 0.45);
+    }
+    @keyframes m3FloatHero {
+        0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+        50% { transform: translateY(-12px) rotateX(3deg) rotateY(-2deg); }
+    }
+    .m3-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 999px;
+        background: rgba(201, 162, 39, 0.15);
+        border: 1px solid rgba(201, 162, 39, 0.45);
+        color: #FFE885;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+    }
+
     .section-title {
         font-family: 'Playfair Display', serif;
         color: #0F2B46;
@@ -205,8 +257,18 @@ st.markdown("""
 # ═══════════════════════════════════════════
 # HERO
 # ═══════════════════════════════════════════
-st.markdown("""
+hero_logo_html = f"""
+<div class="m3-3d-wrapper">
+    <div class="m3-3d-card">
+        <img src="data:image/svg+xml;base64,{_LOGO_B64}" style="width: 100%; height: auto; display: block; border-radius: 20px;" alt="TELADAN 3D Material 3 Logo" />
+    </div>
+</div>
+""" if _LOGO_B64 else ""
+
+st.markdown(f"""
 <div class="hero">
+    {hero_logo_html}
+    <div class="m3-badge">✨ Material Design 3 · Interactive Decision Intelligence</div>
     <h1>🏛️ TELADAN</h1>
     <div class="acronym">Trusted Evidence-based Literature &amp; Analytics for Decision Automation Network</div>
     <p class="tagline">Where <strong>Evidence</strong> Meets <strong>Decision</strong>.</p>
