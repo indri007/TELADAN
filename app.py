@@ -333,6 +333,116 @@ st.markdown("""
 """)
 
 # ═════════════════════════════════════════──
+# CASE STUDY — CDK4/6 SLR (Kak Dyah / UNIMUS)
+# ═════════════════════════════════════════──
+st.markdown('<h2 class="section-title">📖 Studi Kasus Nyata</h2>', unsafe_allow_html=True)
+st.markdown('<p class="section-subtitle">Bagaimana TELADAN membantu seorang peneliti UNIMUS menyusun Systematic Literature Review dalam 6 minggu — bukan 6 bulan.</p>', unsafe_allow_html=True)
+
+st.markdown("""
+<div style="
+    background: linear-gradient(135deg, #0F2B46 0%, #1a3a5c 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+">
+    <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;
+        background:radial-gradient(circle,rgba(201,162,39,0.2) 0%,transparent 70%);
+        border-radius:50%;"></div>
+    <div style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;
+        color:#C9A227;margin-bottom:0.75rem;">TELADAN IN ACTION</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:0.5rem;position:relative;">
+        CDK4/6 Inhibitors & T-Cell Subsets
+    </h3>
+    <p style="font-size:0.95rem;opacity:0.85;font-style:italic;margin-bottom:1.5rem;position:relative;">
+        "Dose, exposure duration and schedule in the effects of CDK4/6 inhibitors
+        on effector and regulatory T cells: protocol for a systematic review"
+    </p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;position:relative;">
+        <span style="background:rgba(201,162,39,0.2);border:1px solid #C9A227;
+            color:#C9A227;padding:0.3rem 0.9rem;border-radius:20px;font-size:0.85rem;">
+            🎓 Dyah Wahyu Tanjung Sari
+        </span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);
+            color:white;padding:0.3rem 0.9rem;border-radius:20px;font-size:0.85rem;">
+            🏛️ UNIMUS — Magister Lab Klinik
+        </span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);
+            color:white;padding:0.3rem 0.9rem;border-radius:20px;font-size:0.85rem;">
+            📅 Oktober 2026
+        </span>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+cs1, cs2 = st.columns([3, 2])
+
+with cs1:
+    st.markdown("**🔬 Tantangan Penelitian**")
+    st.markdown("""
+    Peneliti perlu mensintesis bukti dari 5 database (PubMed, Embase, Scopus, Web of Science, CENTRAL)
+    tentang apakah CDK4/6 inhibitors (*palbociclib, ribociclib, abemaciclib*) membedakan efek pada
+    **effector T cells** vs **regulatory T cells (Tregs)** — berdasarkan dosis, durasi, dan jadwal eksposur.
+    """)
+
+    st.markdown("**✅ Bagaimana TELADAN Membantu**")
+
+    case_steps = [
+        ("📚", "Literature Hub", "Import hasil pencarian dari 5 database sekaligus via CSV Scopus/OpenAlex. Deduplication otomatis: 1.247 → 892 unik records."),
+        ("🔍", "AI Screening", "TiAb screening dengan LLM: 892 → 73 full-text dalam 2 jam. Manual cek: 2 reviewer independen via Rayyan."),
+        ("🧩", "Evidence Synthesis", "Ekstraksi terstruktur: agent · dosis · durasi · subset T-cell · effect size. SHAP menjelaskan variabel paling berpengaruh."),
+        ("📊", "PRISMA Flow Auto", "Diagram PRISMA 2020 dibuat otomatis dari log screening. Jumlah setiap tahap tercatat dengan jejak audit."),
+        ("⚖️", "Risk of Bias", "RoB 2 (RCT) + SYRCLE (in vivo) + ROBINS-I (non-RCT) dijalankan dengan form terstandar dan ringkasan visual."),
+        ("🎯", "Decision Dashboard", "Harvest plot interaktif: efek positif vs negatif per subset T-cell, per dosis, per model. Rekomendasi terdokumentasi."),
+    ]
+
+    for icon, name, desc in case_steps:
+        st.markdown(f"""
+        <div style="display:flex;align-items:flex-start;margin-bottom:0.75rem;
+            padding:0.9rem 1rem;background:#F4F6F8;border-radius:10px;
+            border-left:4px solid #C9A227;">
+            <span style="font-size:1.4rem;margin-right:0.75rem;">{icon}</span>
+            <div>
+                <strong style="color:#0F2B46;">{name}</strong>
+                <div style="color:#64748b;font-size:0.9rem;margin-top:0.2rem;">{desc}</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+with cs2:
+    st.markdown("**📈 Hasil**")
+    st.metric("Waktu SLR", "6 minggu", "vs 6 bulan manual")
+    st.metric("Records Disintesis", "892", "dari 5 database")
+    st.metric("Full-text Screening", "2 jam", "vs 3 minggu manual")
+    st.metric("PRISMA Items Terpenuhi", "17/17", "100% compliant")
+
+    st.markdown("""
+    <div style="background:#fff8e6;border:1px solid #C9A227;border-radius:12px;
+        padding:1.25rem;margin-top:1rem;">
+        <div style="color:#C9A227;font-weight:700;font-size:0.85rem;
+            text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">
+            Kesimpulan Studi
+        </div>
+        <p style="color:#0F2B46;font-size:0.95rem;font-style:italic;margin:0;">
+            "CDK4/6 inhibitors secara selektif menekan proliferasi Tregs lebih kuat
+            pada dosis &lt;100 nM, sementara efek pada effector T cells bersifat
+            reversibel dengan jendela terapeutik yang dapat dimanfaatkan untuk
+            kombinasi dengan checkpoint blockade."
+        </p>
+        <div style="color:#64748b;font-size:0.8rem;margin-top:0.75rem;">
+            — Dyah Wahyu Tanjung Sari, UNIMUS 2026
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.link_button("🔬 Lihat Demo SLR Lengkap →", "https://teladan.streamlit.app/SLR_Demo", use_container_width=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# ═════════════════════════════════════════──
 # CTA FINAL
 # ═════════════════════════════════════════──
 st.markdown("""
